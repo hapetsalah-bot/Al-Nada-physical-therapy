@@ -28,25 +28,28 @@ document.addEventListener('DOMContentLoaded', () => {
             if (langToggleBtn) langToggleBtn.textContent = 'English';
         }
 
-        // Translate elements with data-ar and data-en
+        // Translate elements with data-ar and data-en (Handles text & inputs safely)
         document.querySelectorAll('[data-ar]').forEach(el => {
             const textAr = el.getAttribute('data-ar');
             const textEn = el.getAttribute('data-en');
-            if (lang === 'en' && textEn) {
-                el.textContent = textEn;
-            } else if (lang === 'ar' && textAr) {
-                el.textContent = textAr;
+            const targetText = lang === 'en' ? textEn : textAr;
+            
+            if (targetText) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = targetText;
+                } else {
+                    el.textContent = targetText;
+                }
             }
         });
 
-        // Translate placeholders
+        // Translate placeholders explicitly defined with data-placeholder-ar
         document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
             const phAr = el.getAttribute('data-placeholder-ar');
             const phEn = el.getAttribute('data-placeholder-en');
-            if (lang === 'en' && phEn) {
-                el.placeholder = phEn;
-            } else if (lang === 'ar' && phAr) {
-                el.placeholder = phAr;
+            const targetPh = lang === 'en' ? phEn : phAr;
+            if (targetPh) {
+                el.placeholder = targetPh;
             }
         });
 
@@ -54,10 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('select option').forEach(opt => {
             const optAr = opt.getAttribute('data-ar');
             const optEn = opt.getAttribute('data-en');
-            if (lang === 'en' && optEn) {
-                opt.textContent = optEn;
-            } else if (lang === 'ar' && optAr) {
-                opt.textContent = optAr;
+            const targetOpt = lang === 'en' ? optEn : optAr;
+            if (targetOpt) {
+                opt.textContent = targetOpt;
             }
         });
     }
