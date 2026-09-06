@@ -18,23 +18,26 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLang = lang;
         localStorage.setItem('alnada_lang', lang);
         
-        if (lang === 'en') {
-            document.documentElement.setAttribute('dir', 'ltr');
-            document.documentElement.setAttribute('lang', 'en');
-            if (langToggleBtn) langToggleBtn.textContent = 'عربي';
-        } else {
-            document.documentElement.setAttribute('dir', 'rtl');
-            document.documentElement.setAttribute('lang', 'ar');
-            if (langToggleBtn) langToggleBtn.textContent = 'English';
+        // Ensure html root attributes are updated and protected
+        document.documentElement.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('translate', 'no');
+        document.documentElement.classList.add('notranslate');
+
+        if (langToggleBtn) {
+            langToggleBtn.textContent = lang === 'en' ? 'عربي' : 'English';
+            langToggleBtn.setAttribute('translate', 'no');
+            langToggleBtn.classList.add('notranslate');
         }
 
-        // Translate elements with data-ar and data-en (Handles text & inputs safely)
+        // Translate standard elements with data-ar and data-en
         document.querySelectorAll('[data-ar]').forEach(el => {
             const textAr = el.getAttribute('data-ar');
             const textEn = el.getAttribute('data-en');
             const targetText = lang === 'en' ? textEn : textAr;
             
             if (targetText) {
+                // Prevent translation engine conflicts by setting inner text cleanly
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                     el.placeholder = targetText;
                 } else {
@@ -53,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Translate select options
+        // Translate select options safely
         document.querySelectorAll('select option').forEach(opt => {
             const optAr = opt.getAttribute('data-ar');
             const optEn = opt.getAttribute('data-en');
