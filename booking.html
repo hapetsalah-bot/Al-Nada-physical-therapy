@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-ar="حجز موعد | الندى" data-en="Reserve | Al-Nada">حجز موعد | الندى</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-symbol">✦</span> 
+                <span data-ar="الندى للعلاج الطبيعي والتأهيل" data-en="Al-Nada Physical Therapy">الندى للعلاج الطبيعي والتأهيل</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+                <a href="services.html" data-ar="خبراتنا العلاجية" data-en="Expertise">خبراتنا العلاجية</a>
+                <a href="booking.html" class="active" data-ar="حجز موعد" data-en="Reserve">حجز موعد</a>
+                <a href="contact.html" data-ar="تواصل معنا" data-en="Visit Us">تواصل معنا</a>
+            </nav>
+            <button id="langToggle" class="lang-btn">English</button>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <div class="page-header animate-up">
+            <h1>
+                <span data-ar="احجز موعد" data-en="Reserve Your">احجز موعد</span>
+                <strong class="accent-text" data-ar="استشارتك" data-en="Appointment">استشارتك</strong>
+            </h1>
+        </div>
+
+        <div class="booking-wrapper animate-up">
+            <form id="bookingForm" class="booking-form">
+                <div class="form-group">
+                    <label data-ar="الاسم بالكامل *" data-en="Full Name *">الاسم بالكامل *</label>
+                    <input type="text" id="fullName" required 
+                           data-placeholder-ar="أدخل اسمك الكامل" 
+                           data-placeholder-en="Enter your full name" 
+                           placeholder="أدخل اسمك الكامل">
+                </div>
+                
+                <div class="form-group">
+                    <label data-ar="رقم الهاتف *" data-en="Phone Number *">رقم الهاتف *</label>
+                    <input type="tel" id="phone" required 
+                           data-placeholder-ar="01012345678" 
+                           data-placeholder-en="01012345678" 
+                           placeholder="01012345678">
+                </div>
+                
+                <div class="form-group">
+                    <label data-ar="نوع العلاج المطلوب *" data-en="Required Treatment *">نوع العلاج المطلوب *</label>
+                    <select id="treatment" required>
+                        <option value="spine_joints" data-ar="آلام الظهر والرقبة والخشونة وأوتار الكتف والكاحل" data-en="Back/Neck Pain, Osteoarthritis, Shoulder & Ankle Tendonitis">آلام الظهر والرقبة والخشونة وأوتار الكتف والكاحل</option>
+                        <option value="sports" data-ar="إصابات الملاعب والتأهيل الحركي" data-en="Sports Injuries & Motor Rehab">إصابات الملاعب والتأهيل الحركي</option>
+                        <option value="neuro" data-ar="التأهيل العصبي والجلطات" data-en="Neurological & Stroke Rehab">التأهيل العصبي والجلطات</option>
+                        <option value="general" data-ar="استشارة عامة" data-en="General Consultation">استشارة عامة</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label data-ar="التاريخ المفضل *" data-en="Preferred Date *">التاريخ المفضل *</label>
+                    <input type="date" id="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label data-ar="الأعراض / ملاحظات" data-en="Symptoms / Notes">الأعراض / ملاحظات</label>
+                    <textarea id="notes" rows="4" 
+                              data-placeholder-ar="اكتب تفاصيل الأعراض هنا..." 
+                              data-placeholder-en="Write your symptoms or notes here..." 
+                              placeholder="اكتب تفاصيل الأعراض هنا..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary form-submit-btn" data-ar="تأكيد الحجز عبر واتساب" data-en="Confirm via WhatsApp">تأكيد الحجز عبر واتساب</button>
+            </form>
+        </div>
+    </main>
+
+    <a href="https://wa.me/201500818332" class="float-whatsapp" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" class="whatsapp-icon"><path fill="#ffffff" d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38c1.45.79 3.09 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.04 20.1c-1.42 0-2.81-.38-4.03-1.11l-.29-.17-3 1.01 1.01-3-.18-.31c-.77-1.23-1.18-2.67-1.18-4.14 0-4.52 3.68-8.2 8.2-8.2 2.19 0 4.25.85 5.8 2.4 1.55 1.55 2.4 3.61 2.4 5.8 0 4.52-3.68 8.2-8.2 8.2zm4.51-6.14c-.25-.13-1.47-.72-1.69-.8-.23-.08-.39-.13-.56.13-.17.25-.64.8-.79.97-.15.17-.31.19-.56.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.39.11-.52.12-.12.25-.31.38-.47.13-.17.17-.28.25-.47.08-.19.04-.36-.02-.5-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.93 2.52 1.06 2.69.13.17 1.83 2.8 4.43 3.92.62.27 1.1.43 1.48.55.62.2 1.18.17 1.62.1.5-.08 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
