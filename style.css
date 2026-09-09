@@ -3,9 +3,11 @@
     --surface-light: #F8F9FB;
     --text-primary: #0F172A;
     --text-secondary: #475569;
-    --gold-accent: #C5A059;
-    --gold-hover: #A88647;
-    --gold-light: rgba(197, 160, 89, 0.1);
+    
+    /* Turquoise Accent */
+    --gold-accent: #12B3A8; 
+    --gold-hover: #0E8E85;  
+    --gold-light: rgba(18, 179, 168, 0.1); 
     
     --whatsapp-color: #25D366;
     --facebook-color: #1877F2;
@@ -48,7 +50,7 @@ body {
     font-family: 'Playfair Display', 'Cairo', serif;
 }
 
-/* Navbar */
+/* Navbar & Logo Styling */
 .navbar {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
@@ -72,8 +74,14 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     white-space: nowrap;
+}
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 50%;
 }
 .logo-symbol { color: var(--gold-accent); }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -162,7 +170,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* Featured Video Section (Pelvic Floor Reel) */
+/* Featured Video Section */
 .featured-video-section {
     background: var(--surface-light);
     padding: 5rem 2rem;
