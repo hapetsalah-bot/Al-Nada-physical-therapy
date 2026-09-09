@@ -185,10 +185,15 @@ body {
     margin-top: 2rem;
 }
 
-.video-container-center iframe {
+.video-container-center iframe,
+.service-video-side iframe,
+.service-card iframe,
+.service-card-full iframe {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-hover);
-    max-width: 100%;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16;
 }
 
 .page-container {
@@ -236,12 +241,6 @@ body {
     min-width: 300px;
     display: flex;
     justify-content: center;
-}
-
-.service-video-side iframe {
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-soft);
-    max-width: 100%;
 }
 
 .service-card {
@@ -369,10 +368,26 @@ body {
     .hero-title { font-size: 2.8rem; }
     .service-card-full { padding: 2rem; }
 }
+
 @media (max-width: 768px) {
     .navbar { padding: 1rem; }
     .nav-container { flex-direction: column; gap: 1.2rem; }
-    .nav-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+    
+    /* Make long English navigation links scrollable cleanly on mobile */
+    .nav-links { 
+        display: flex; 
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
+        width: 100%; 
+        justify-content: flex-start; 
+        gap: 1.5rem; 
+        padding-bottom: 5px; 
+        scrollbar-width: none; 
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
     .hero { padding: 4rem 1rem; }
     .logo { font-size: 0.95rem; }
     .booking-form { padding: 2rem 1.5rem; }
